@@ -1,0 +1,101 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  height: -webkit-fill-available;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  font-family: "Inter", sans-serif;
+}
+#cover {
+  width: 100%;
+  height: 200px; /* Ubah nilai height sesuai kebutuhan */
+  object-fit: cover;
+  object-position: center;
+}
+
+
+#banner{
+  width: 900px;
+  height: 650px; /* Ubah nilai height sesuai kebutuhan */
+  object-fit: cover;
+  object-position: center;
+}
+
+#biru{
+  background-color: #0D28A6; 
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  width: 120px;
+}
+p{
+  margin-bottom: 0 !important;
+}
+
+#nyala{
+  background-color: rgba(255, 255, 255, 0.3);
+  ;
+}
+#sudi{
+  
+  background-color: #CFD4ED;
+}
+#utama{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+#hapus{
+  border-color: #FA2C5A;
+  color: #FA2C5A;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+#edit {
+  background-color: #5CB85F;
+  color: white;
+  border: none;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+#sidebar-nav {
+  width: 250px;
+}
+
+#tombol {
+  background-color: #0D28A6;
+  border-color: #0D28A6;
+  color: white;
+}
+
+#disableButton{
+  color: #AEB7E1;
+  border-color: #AEB7E1;
+  background-color: white;
+  margin-left: 10px;
+}
+
+#ableButton{
+  color: #0D28A6;
+  border-color: #0D28A6;
+  background-color: #CFD4ED;
+}
+
+#cancel{
+border-color: #0D28A6;
+color: #0D28A6;
+}
+
+#save{
+  background-color: #0D28A6;
+  color: white;
+  border: none;
+}

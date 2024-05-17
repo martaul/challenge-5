@@ -1,0 +1,87 @@
+<%- include('layouts/sidebar')  %>
+<%- include('layouts/navbar')  %>
+<div id="isi" style="background-color:  #F4F5F7;">
+  <% if (msg.length !== 0) { %>
+      <div class="position-relative">
+        <div class="alert alert-success position-absolute top-0 start-50 translate-middle-x w-75" style="text-align: center;" role="alert">
+          <%= msg %>
+      </div>
+      </div>
+  <% } %>
+<div class="container">
+    <div class="breadcumb pt-4">
+        <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Cars</a></li>
+              <li class="breadcrumb-item active" aria-current="page">List Cars</li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="d-flex align-items-center justify-content-between">
+        <h4>List Cars</h4>
+        <a href="/add" type="button" class="btn d-flex align-items-center -2" id="tombol" ><span class="material-symbols-outlined mx-2">add</span>Add New Car</a>
+    </div>
+        
+    <div class="filter pt-2">
+        <button type="button" class="btn btn-outline-primary" id="ableButton"><b>All</b></button>
+        <button type="button" class="btn btn-outline-primary" id="disableButton">Small</button>
+        <button type="button" class="btn btn-outline-primary" id="disableButton">Medium</button>
+        <button type="button" class="btn btn-outline-primary" id="disableButton">Large</button>
+    </div>
+    <div class="row">
+      <% cars.forEach((row, index) => { %>
+        <div class="col-4">
+            <div class="card mt-5" ">
+                <img id="cover"  src="<%= row.image %>" class="card-img-top" alt="mobil">
+                <div class="card-body">
+                    <p class="card-text"><%= row.nama %></p>
+                  <h5 class="card-title">Rp. <%= row.harga %> / hari</h5>
+                  <div class="d-flex pt-2">
+                    <img src="fi_key.svg" alt="key">
+                    <p class="card-text px-2">Start rent - Finish rent</p>
+                  </div>
+                  <div class="d-flex pt-2">
+                    <img src="fi_clock.svg" alt="key">
+                    <p class="card-text px-2">Update at <%= row.created %></p>
+                  </div>
+                  <div class="d-flex justify-content-between pt-3">
+                    <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-outline-primary" id="hapus"> <img src="fi_trash-2.svg" alt="hapus"> Delete</button>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body" style="text-align: center;">
+                            <img src="popup.png" alt="mobil" width="200">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Menghapus data mobil</h1>
+                            <p class="modal-title fs-7" id="exampleModalLabel">Setelah dihapus, data mobil tidak dapat dikembalikan. <br> Yakin ingin menghapus?</p>
+                          </div>
+                          <div class="modal-footer">
+                            <a href="/delete/<%= row._id %>" class="btn btn-primary">Ya</a>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <a href="/edit/<%= row._id %>" class="btn btn-primary" id="edit"> <img src="fi_edit.svg" alt="edit"> Edit</a>
+                  </div> 
+                </div>
+            </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</div>
+<script>
+// Get the modal
+const myModal = document.getElementById('myModal')
+const myInput = document.getElementById('myInput')
+
+myModal.addEventListener('shown.bs.modal', () => {
+  myInput.focus()
+})
+</script>
+<%- include('layouts/footer')  %>
+                
